@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Contact Information" icon-name="standard:contact">
+        <div class="slds-var-p-around_medium custom-contact-container">
+
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input 
+                        label="First Name" 
+                        name="firstName" 
+                        value={sharedData.contact.firstName} 
+                        onchange={handleInput}
+                    ></lightning-input>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input 
+                        label="Last Name" 
+                        name="lastName" 
+                        value={sharedData.contact.lastName} 
+                        onchange={handleInput}
+                    ></lightning-input>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input 
+                        label="Email" 
+                        name="email" 
+                        value={sharedData.contact.email} 
+                        onchange={handleInput}
+                    ></lightning-input>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input 
+                        label="Phone" 
+                        name="phone" 
+                        value={sharedData.contact.phone} 
+                        onchange={handleInput}
+                    ></lightning-input>
+                </div>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,66 @@
+<template>
+    <lightning-card title="Property Search Table" icon-name="standard:address">
+        <div class="slds-p-around_medium custom-container">
+            
+            <!-- Search Fields -->
+            <lightning-input label="Query (e.g. Phoenix, AZ or 85083)" value={query} onchange={handleInputChange} name="query"></lightning-input>
+
+            <div class="slds-grid slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input label="Street" value={compStreet} onchange={handleInputChange} name="compStreet"></lightning-input>
+                    <lightning-input label="City" value={compCity} onchange={handleInputChange} name="compCity"></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input label="State" value={compState} onchange={handleInputChange} name="compState"></lightning-input>
+                    <lightning-input label="ZIP" value={compZip} onchange={handleInputChange} name="compZip"></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters slds-m-top_small">
+                <div class="slds-col">
+                    <lightning-input type="number" label="Take (Results Limit)" value={take} onchange={handleInputChange} name="take"></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input type="number" label="Skip (Offset)" value={skip} onchange={handleInputChange} name="skip"></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters slds-m-top_small">
+                <div class="slds-col">
+                    <lightning-input type="checkbox" label="Use Year Built" checked={useYearBuilt} onchange={handleCheckboxChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-align-bottom">
+                    <lightning-button 
+                        label="Search" 
+                        variant="brand" 
+                        onclick={handleSearch} 
+                        class="slds-m-left_small"
+                    ></lightning-button>
+                </div>
+            </div>
+
+            <!-- Data Table Section -->
+            <template if:true={propertyData}>
+                <div class="slds-m-top_large">
+                    <lightning-datatable
+                        key-field="id"
+                        data={propertyData}
+                        columns={columns}
+                        hide-checkbox-column
+                        class="custom-table slds-scrollable_none"
+                    ></lightning-datatable>
+                </div>
+
+                <div class="slds-m-top_medium slds-align_absolute-center">
+                    <lightning-button 
+                        label="Save" 
+                        variant="success" 
+                        onclick={handleSave}
+                        class="save-button"
+                    ></lightning-button>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>
